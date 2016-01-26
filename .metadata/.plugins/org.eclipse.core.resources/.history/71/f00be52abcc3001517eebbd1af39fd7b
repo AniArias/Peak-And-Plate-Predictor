@@ -1,0 +1,30 @@
+package com.prueba.picoplaca;
+
+public class PicoyPlaca {
+
+	
+	public String validaPicoPlaca(String placa, String dia){
+		String lastNumber="";
+		
+		lastNumber = getLastNumber(placa);
+		
+		
+		
+		return "ok";
+	}
+	
+	public String getLastNumber(String placa){
+		return placa.substring(placa.length()-1);
+	}
+	
+	
+	public boolean validarDia(String dia){
+		
+	}
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+}

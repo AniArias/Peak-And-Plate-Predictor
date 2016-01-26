@@ -1,0 +1,48 @@
+package com.prueba.picoplaca;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.StringTokenizer;
+
+public class PicoyPlaca {
+
+	
+	public String validaPicoPlaca(String plate, String date) throws ParseException{
+		String lastNumber="";
+		int day=0;
+		
+		lastNumber = getLastNumber(plate);
+		day = getDay(date);
+		
+		switch(date.toLowerCase()){
+		
+		}
+		
+		return "ok";
+	}
+	
+	public String getLastNumber(String placa){
+		return placa.substring(placa.length()-1);
+	}
+	
+	public int getDay(String date) throws ParseException{
+		
+		Date format_date = null; 
+		format_date = new SimpleDateFormat("dd/M/yyyy").parse(date);
+		Calendar c = Calendar.getInstance();
+		c.setTime(format_date);
+		int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+		
+		return dayOfWeek;
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+}

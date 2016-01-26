@@ -1,0 +1,31 @@
+package com.prueba.picoplaca;
+
+public class PicoyPlaca {
+
+	
+	public String validaPicoPlaca(String plate, String date){
+		String lastNumber="";
+		
+		lastNumber = getLastNumber(plate);
+		
+		
+		switch(date.toLowerCase()){
+			
+		
+		}
+		
+		return "ok";
+	}
+	
+	public String getLastNumber(String placa){
+		return placa.substring(placa.length()-1);
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+}

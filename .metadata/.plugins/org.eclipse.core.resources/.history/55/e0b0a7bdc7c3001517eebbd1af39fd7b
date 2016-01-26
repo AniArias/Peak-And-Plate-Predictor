@@ -1,0 +1,104 @@
+package com.prueba.picoplaca;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+public class PicoyPlaca {
+
+	
+	private static void validaPicoPlaca(String plate, String date, int time) throws ParseException{
+		String lastNumber="";
+		int day=0;
+		int to_pico_1 = 700;
+		int from_pico_1 = 730;
+		int to_pico_2 = 1600;
+		int from_pico_2 = 1930;
+		
+		
+		lastNumber = getLastNumber(plate);
+		day = getDay(date);
+		
+		if(!isInRange(time,to_pico_1,from_pico_1)&&!isInRange(time,to_pico_2,from_pico_2)){
+			System.out.println("YES!, You can road");
+		}else{
+			switch(day){
+				case 2:{
+					if((lastNumber.equals("1"))||lastNumber.equals("2"))
+						System.out.println("SORRY!, You can't road");
+					else
+						System.out.println("YES!, You can road");
+				}
+				case 3:{
+					if((lastNumber.equals("3"))||lastNumber.equals("4"))
+						System.out.println("SORRY!, You can't road");
+					else
+						System.out.println("YES!, You can road");
+				}
+				case 4:{
+					if((lastNumber.equals("5"))||lastNumber.equals("6"))
+						System.out.println("SORRY!, You can't road");
+					else
+						System.out.println("YES!, You can road");
+				}
+				case 5:{
+					if((lastNumber.equals("7"))||lastNumber.equals("8"))
+						System.out.println("SORRY!, You can't road");
+					else
+						System.out.println("YES!, You can road");
+				}
+				case 6:{
+					if((lastNumber.equals("0"))||lastNumber.equals("9"))
+						System.out.println("SORRY!, You can't road");
+					else
+						System.out.println("YES!, You can road");
+				}
+			}
+		}
+		
+	}
+	
+	private static String getLastNumber(String placa){
+		return placa.substring(placa.length()-1);
+	}
+	
+	private static boolean isInRange(int now_time, int start_time, int end_time) {
+
+	       if ((now_time>start_time)&&
+	               (now_time<end_time)       )
+	       {
+	        return true;
+	       }
+	        return false;
+	    }
+
+	
+	private static int getDay(String date) throws ParseException{
+		
+		Date format_date = null; 
+		format_date = new SimpleDateFormat("dd/M/yyyy").parse(date);
+		Calendar c = Calendar.getInstance();
+		c.setTime(format_date);
+		int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+		
+		return dayOfWeek;
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		String fecha="29/1/2016";
+		String placa="1234";
+		int time=1700;
+		try {
+			validaPicoPlaca(placa,fecha,time);
+		} catch (ParseException e) {
+			System.out.println("Upss!! Something is wrong! :(");
+		}
+
+	}
+	
+	
+}

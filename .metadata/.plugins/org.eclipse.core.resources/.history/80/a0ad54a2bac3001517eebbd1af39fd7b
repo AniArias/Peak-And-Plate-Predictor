@@ -1,0 +1,25 @@
+package com.prueba.picoplaca;
+
+public class PicoyPlaca {
+
+	
+	public PicoyPlaca(){
+	}
+	
+	
+	public String validaPicoPlaca(){
+		
+		
+		
+		
+		return "ok";
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+}

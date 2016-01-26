@@ -1,0 +1,13 @@
+package com.prueba.picoplaca;
+
+public class PicoyPlaca {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

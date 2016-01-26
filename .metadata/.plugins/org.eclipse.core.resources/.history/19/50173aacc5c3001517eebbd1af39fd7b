@@ -1,0 +1,83 @@
+package com.prueba.picoplaca;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.StringTokenizer;
+
+public class PicoyPlaca {
+
+	
+	private String validaPicoPlaca(String plate, String date, int time) throws ParseException{
+		String lastNumber="";
+		int day=0;
+		SimpleDateFormat format_time=null;
+	    
+		format_time = new SimpleDateFormat("hh:mm:ss");
+		
+		int to_pico_1 = 7;
+		int from_pico_1 = 730;
+		int to_pico_2 = 16;
+		int from_pico_2 = 1930;
+		
+		
+		
+		if(isInRange(time,to_pico_1,from_pico_1)||isInRange(time,to_pico_2,from_pico_2)){
+			System.out.println("YES!, You can road");
+		}else{
+			
+			lastNumber = getLastNumber(plate);
+			day = getDay(date);
+			
+			switch(day){
+				case 1:{
+					if((lastNumber.equals("1"))||lastNumber.equals("2"))
+						System.out.println("SORRY!, You can't road");
+				}
+			}
+		}
+	    
+		
+		
+	    
+		
+		
+		return "ok";
+	}
+	
+	private String getLastNumber(String placa){
+		return placa.substring(placa.length()-1);
+	}
+	
+	private boolean isInRange(int now_time, int start_time, int end_time) {
+
+	       if ((now_time>start_time)&&
+	               (now_time<end_time)       )
+	       {
+	        return true;
+	       }
+	        return false;
+	    }
+
+	
+	private int getDay(String date) throws ParseException{
+		
+		Date format_date = null; 
+		format_date = new SimpleDateFormat("dd/M/yyyy").parse(date);
+		Calendar c = Calendar.getInstance();
+		c.setTime(format_date);
+		int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+		
+		return dayOfWeek;
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		
+
+	}
+	
+	
+}
